@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ContactPage</title>
+        <link href="{% static 'images/logo.jpg' %}" rel="icon" type="image">
+        <link href="{% static 'css/contact.css' %}" rel="stylesheet">
+        <script src="{% static 'js/contact.js' %}" rel="javascript" ></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>   
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+        <!--header-->
+    <header class="header">
+        <a href="{% url 'home' %}"> <img src="{% static 'images/logo_png.png' %}" class="logos"></a>
+         <input type="text" class="search_box" placeholder="Title,Author,Publisher or ISBN">
+         <button class="search_button">
+             <div class="search_icon_bg">
+                 <span class="material-symbols-outlined search_icon">search</span>
+             </div>
+         </button>
+         <span class="material-symbols-outlined user">account_circle</span>
+        <a href="#" class="drop">My Account <span class="material-symbols-outlined arrow">arrow_drop_down</span></a>
+        <ul class="dropdown">
+            <li class="loginlist"><a href="{% url 'login' %}" class="loginlists">Login </a></li>
+            <li class="signuplist"><a href="{% url 'signup' %}" class="signuplists">New to OBS?<br>SignUp </a></li><hr>
+            <li class="droplist"><a href="#"  class="droplists">Your Account </a></li>
+            <li class="droplist"><a href="#"  class="droplists">Personal Settings </a></li>
+            <li class="droplist"><a href="#"  class="droplists">Your Orders </a></li>
+            <li class="droplist"><a href="#"  class="droplists">Your Wishlist</a></li>
+            <li class="droplist"><a href="#" class="droplists">Your Gift Certificate </a></li>
+            <li class="droplist"><a href="#" class="droplists">Your Addresses </a></li>
+            <li class="droplist"><a href="{% url 'forgot_password' %}" class="droplists">Change Password </a></li><hr>
+            <li class="radiolist"><span>Currency <input type="radio" name="currency">&#8377;<input type="radio" name="currency">&#36;</span></li>
+        </ul>
+ 
+         <div class="line"></div>
+         <a href="#">
+             <input type="number" placeholder="0" class="cart_number" disabled>
+             <span class="material-symbols-outlined cart">shopping_cart</span>
+         </a>
+     </header>
+     <nav>
+        <a href="#" class="nav side">Book<span class="material-symbols-outlined">arrow_drop_down</span></a><div class="lines"></div>
+        <a href="{% url 'new_arrivals' %}" class="nav request"><span class="material-symbols-outlined">menu_book</span>&nbsp;&nbsp;New Arrivals</a><div class="lines"></div>
+        <a href="{% url 'box_sets' %}" class="nav">Box Sets</a><div class="lines"></div>
+        <a href="{% url 'best_seller' %}" class="nav">Best Seller</a><div class="lines"></div>
+        <a href="{% url 'fiction_books' %}" class="nav">Fiction Books</a><div class="lines"></div>
+        <a href="{% url 'award_winning' %}" class="nav"> Award Winners</a><div class="lines"></div>
+        <a href="{% url 'featured_authors' %}" class="nav">Featured Authors</a><div class="lines"></div>
+        <a href="{% url 'todays_deals' %}" class="nav">Today's Deal</a><div class="lines"></div><br>
+        <a href="{% url 'request_a_book' %}" class="nav ">Request a Book</a><div class="lines"></div>
+         <div>
+             <input type="number" placeholder="0" class="heart_number" disabled>
+             <img src="{% static 'images/heart_aboutus_page.png' %}" class="heart_img">
+         </div>
+     </nav>
+     <div class="side_dropdown">
+        <li class="side_list"><a href="{% url 'art_&_photography' %}" ><span class="side_lists">Art & Photography</span></a></li>
+        <li class="side_list"><a href="{% url 'Biographies_&_Memoirs' %}" ><span class="side_lists">Biographies & Memoirs</span></a></li>
+        <li class="side_list"><a href="{% url 'Dictionaries_&_Language' %}" ><span class="side_lists">Dictionaries & Language</span></a></li>
+        <li class="side_list"><a href="{% url 'Fiction' %}" ><span class="side_lists">Fiction</span></a></li>
+        <li class="side_list"><a href="{% url 'Society' %}" ><span class="side_lists">Society</span></a></li>
+        <li class="side_list"><a href="{% url 'law' %}" ><span class="side_lists">Law</span></a></li>
+        <li class="side_list"><a href="{% url 'medicine' %}" ><span class="side_lists">Medicine</span></a></li>
+     </div>
+         
+        
+         <div>
+             <div class="div1">
+                 <div class="text"><p class="text1">CONTACT US</p></div>
+                 <p class="quote">Today a Reader Tommorow a Leader</p>
+                 <img src="{% static 'images/banner.jpg' %}" class="img1"/>
+             </div>
+
+        <div class="box">
+
+
+            <div class="box1">
+                <a href="{% url 'home' %}"><img src="{% static 'images/logo_png.png' %}" class="logo_img"></a>
+                <h1>Contact</h1>
+                <p>Welcome Back. Please contact Us</p>
+                <div class="line"></div>
+                
+
+                <form action="{% url 'contactus' %}" method="post">
+                    {% csrf_token %}
+                    <input type="text" placeholder="FullName" name="fullname" class="ids" required pattern="[a-zA-Z]+" title="please enter valid name"/><br>
+                    <input type="Email" placeholder="Email" name="email" class="ids" required/><br>
+                    <input type="text" placeholder="MobileNumber" name="mobile_no" class="ids" required pattern="[0-9]+" title="please enter valid number"/><br>
+                    <input type="Location" placeholder="Location" name="location" class="ids" required/><br>
+                    <input type="text" placeholder="Enquiryfor?" name="message" class="ids" required pattern="[a-zA-z0-9.@/()]+" title="please enter valid characters" class="description"/><br>
+                    <input type="submit" value="contactus" class="btn btn"/>
+                </form>
+            </div>
+            <div class="box2">
+                <img src="{% static 'images/contact.jpeg' %}" class="login_img">
+            </div>
+
+        </div>
+
+          <!--footer-->
+<footer class="footer">
+    <div class="foot1">
+        <div class="div1">
+            <h1 class="heads"><a href="#"class="lnk" >OBS </a></h1>
+            <p><a href="#"class="lnk">Today a Reader<br> Tommorow a Leader </a></p>
+        </div>
+        <div class="div2">
+            <h2 class="heads">COMPANY</h2>
+            <p class="dash dash2"></p>
+            <a href="{% url 'about_us' %}" class="lnk">ABOUT  US</a><br><br>
+            <a href="{% url 'contact' %}" class=" lnk">CONTACT  US</a>
+        </div>
+        <div class="div2">
+            <h2 class="heads">POLICIES</h2>
+            <p class="dash dash2"></p>
+            <a href="#" class="lnk">PRIVACY POLICIES</a><br><br>
+            <a href="#" class="lnk">TERMS OF USE</a><br><br>
+            <a href="#" class="lnk">SECURE SHOPPING</a>
+        </div>
+        <div class="div2">
+            <h2 class="heads">HELP</h2>
+            <p class="dash dash1"></p>
+            <a href="#" class="lnk">PAYMENT</a><br><br>
+            <a href="#" class="lnk">SHIPPING</a><br><br>
+            <a href="#" class="lnk">RETURN</a><br><br>
+            <a href="#" class="lnk">FAQ'S</a>
+        </div>
+        <div class="div2 div3">
+            <h2 class="heads">DESIGNED BY</h2>
+            <p class=" dash3"></p>
+            <a href="#" class="lnk">
+                <span class="material-symbols-outlined">person</span> 
+                SRINIVAS DUNGROTH</a><br><br>
+            <a href="#" class="lnk">
+                <span class="material-symbols-outlined">call</span>
+                9182647592</a><br><br>
+            <a href="#" class="lnk">
+                <span class="material-symbols-outlined">location_on</span>
+                HYDERABAD</a><br><br>
+            <a href="#" class="lnk">
+                <span class="material-symbols-outlined">mail</span>
+                dungrothsreenivas143@gmail.com</a>
+        </div>
+        
+    </div>
+    <div class="foot2">
+        <div class="social_icons">
+            <a href=""><img src="{% static 'images/youtube.png' %}" class="icon"></a><br>
+            <a href=""><img src="{% static 'images/whatsapp.png' %}" class="icon"></a><br>
+            <a href=""><img src="{% static 'images/twitter.png' %}" class="icon"></a><br>
+            <a href=""><img src="{% static 'images/instagram.png' %}" class="icon"></a><br>
+        </div>
+        <h2 class="last">Powered by 360 digrii</h2>
+    </div>
+</footer>
+</html>

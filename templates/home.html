@@ -1,0 +1,303 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <link href="{% static 'images/logo.jpg' %}" rel="icon" type="image">
+    <link href="{% static 'css/home.css' %}" rel="stylesheet">
+    <script defer src="{% static 'js/home.js' %}" rel="javascript" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>   
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!--header-->
+    <header class="header">
+        <a href="{% url 'home' %}">
+            <img src="{% static 'images/logo_png.png' %}" class="logo">
+        </a>
+        <input type="text" class="search_box" placeholder="Title,Author,Publisher or ISBN">
+        <button class="search">
+            <div class="search_icon_bg">
+                <span class="material-symbols-outlined search_icon">search</span>
+            </div>
+        </button>
+        <span class="material-symbols-outlined user">account_circle</span>
+        <a href="#" class="drop">My Account <span class="material-symbols-outlined arrow">arrow_drop_down</span></a>
+        <ul class="dropdown">
+            <li class="loginlist"><a href="login" class="loginlists">Login </a></li>
+            <li class="signuplist"><a href="signup" class="signuplists">New to OBS?<br>SignUp </a></li>
+            <li class="droplist"><a href="forgot_password" class="droplists">Change Password </a></li>
+            <li class="droplist"><a href="contact" class="droplists">Contact us </a></li>
+            <li class="droplist"><a href="about_us" class="droplists">About us</a></li><hr>
+            <li class="radiolist"><span>Currency <input type="radio" name="currency">&#8377;<input type="radio" name="currency">&#36;</span></li>
+        </ul>
+        <div class="accountline"></div>
+        <a href="#">
+            <input type="number" placeholder="0" class="cart_number" disabled>
+            <span class="material-symbols-outlined cart">shopping_cart</span>
+        </a>
+    </header>
+    <!--nav bar-->
+    <nav>
+        <a href="#" class="nav side">Book<span class="material-symbols-outlined">arrow_drop_down</span></a><div class="lines"></div>
+        <a href="new_arrivals" class="nav">New Arrivals</a><div class="lines"></div>
+        <a href="box_sets" class="nav">Box Sets</a><div class="lines"></div>
+        <a href="best_seller" class="nav">Best Seller</a><div class="lines"></div>
+        <a href="fiction_books" class="nav">Fiction Books</a><div class="lines"></div>
+        <a href="award_winning" class="nav"> Award Winners</a><div class="lines"></div>
+        <a href="featured_authors" class="nav">Featured Authors</a><div class="lines"></div>
+        <a href="todays_deals" class="nav">Today's Deal</a><div class="lines"></div><br>
+        <a href="request_a_book" class="nav">Request a Book</a><div class="lines"></div>
+        <div>
+            <input type="number" placeholder="0" class="heart_number" disabled>
+            <img src="{% static 'images/heart_aboutus_page.png' %}" class="heart_img">
+        </div>
+    </nav>
+    <div class="side_dropdown">
+        <li class="side_list"><a href="art_&_photography" ><span class="side_lists">Art & Photography</span></a></li>
+        <li class="side_list"><a href="Biographies_&_Memoirs" ><span class="side_lists">Biographies & Memoirs</span></a></li>
+        <li class="side_list"><a href="Dictionaries_&_Language" ><span class="side_lists">Dictionaries & Language</span></a></li>
+        <li class="side_list"><a href="Fiction" ><span class="side_lists">Fiction</span></a></li>
+        <li class="side_list"><a href="Society" ><span class="side_lists">Society</span></a></li>
+        <li class="side_list"><a href="law" ><span class="side_lists">Law</span></a></li>
+        <li class="side_list"><a href="medicine" ><span class="side_lists">Medicine</span></a></li>
+    </div>
+
+<!--banner-->
+<marquee direction="left" scrollamount="30" loop="10">
+    <div class="slide">
+    <div >
+        <img src="{% static 'images/art&photography_banner.jpg' %}" class="img">
+        <p class="slide_text1">Art & Photography</p>
+    </div>
+    <div >
+        <img src="{% static 'images/Biographies&Memoirs_banner.jpg' %}" class="img">
+        <p class="slide_text2">Biographies & Memories</p>
+    </div>
+    <div >
+        <img src="{% static 'images/Dictionaries&Language_banner.jpg' %}" class="img">
+        <p class="slide_text3">Dictionaries & Language</p>
+    </div>
+    <div >
+        <img src="{% static 'images/Fiction_banner.jpg' %}" class="img">
+        <p class="slide_text4">Fiction</p>
+    </div>
+    <div >
+        <img src="{% static 'images/society_banner.jpg' %}" class="img">
+        <p class="slide_text5">Society</p>
+    </div>
+    <div >
+        <img src="{% static 'images/law_banner.jpg' %}" class="img">
+        <p class="slide_text6">LAW</p>
+    </div>
+    <div >
+        <img src="{% static 'images/medicine_banner.jpg' %}" class="img">
+        <p class="slide_text7">Medicine</p>
+    </div>
+    </div>
+</marquee>
+
+<!--icons-->
+<div class="boxline" ></div>
+
+<div class="navicons">
+    <div class="iconbox">
+        <a href="new_arrivals">
+            <svg class="navicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#006900" d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5V78.6c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8V454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5V83.8c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11V456c0 11.4 11.7 19.3 22.4 15.5z"/></svg>            
+            <h3>New Arrivals</h3>
+        </a>
+    </div>
+    <div class="iconbox">
+        <a href="box_sets">
+            <svg class="navicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#006900" d="M50.7 58.5L0 160H208V32H93.7C75.5 32 58.9 42.3 50.7 58.5zM240 160H448L397.3 58.5C389.1 42.3 372.5 32 354.3 32H240V160zm208 32H0V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192z"/></svg>       
+            <h3>Box Sets</h3>
+        </a>
+    </div>
+    <div class="iconbox">
+        <a href="best_seller">
+            <svg class="navicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#006900" d="M309 106c11.4-7 19-19.7 19-34c0-22.1-17.9-40-40-40s-40 17.9-40 40c0 14.4 7.6 27 19 34L209.7 220.6c-9.1 18.2-32.7 23.4-48.6 10.7L72 160c5-6.7 8-15 8-24c0-22.1-17.9-40-40-40S0 113.9 0 136s17.9 40 40 40c.2 0 .5 0 .7 0L86.4 427.4c5.5 30.4 32 52.6 63 52.6H426.6c30.9 0 57.4-22.1 63-52.6L535.3 176c.2 0 .5 0 .7 0c22.1 0 40-17.9 40-40s-17.9-40-40-40s-40 17.9-40 40c0 9 3 17.3 8 24l-89.1 71.3c-15.9 12.7-39.5 7.5-48.6-10.7L309 106z"/></svg>    
+            <h3>Best Seller</h3>
+        </a>
+    </div>
+    <div class="iconbox">
+        <a href="fiction_books">
+            <svg class="navicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#006900" d="M0 80v48c0 17.7 14.3 32 32 32H48 96V80c0-26.5-21.5-48-48-48S0 53.5 0 80zM112 32c10 13.4 16 30 16 48V384c0 35.3 28.7 64 64 64s64-28.7 64-64v-5.3c0-32.4 26.3-58.7 58.7-58.7H480V128c0-53-43-96-96-96H112zM464 480c61.9 0 112-50.1 112-112c0-8.8-7.2-16-16-16H314.7c-14.7 0-26.7 11.9-26.7 26.7V384c0 53-43 96-96 96H368h96z"/></svg>
+            <h3>Fiction Books</h3>
+        </a>
+    </div>
+    <div class="iconbox">
+        <a href="award_winning">
+            <svg class="navicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#006900" d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0L228 17.2c6 3.9 13 5.8 20.1 5.4l21.3-1.3c13.2-.8 25.6 6.4 31.5 18.2l9.6 19.1c3.2 6.4 8.4 11.5 14.7 14.7L344.5 83c11.8 5.9 19 18.3 18.2 31.5l-1.3 21.3c-.4 7.1 1.5 14.2 5.4 20.1l11.8 17.8c7.3 11 7.3 25.4 0 36.4L366.8 228c-3.9 6-5.8 13-5.4 20.1l1.3 21.3c.8 13.2-6.4 25.6-18.2 31.5l-19.1 9.6c-6.4 3.2-11.5 8.4-14.7 14.7L301 344.5c-5.9 11.8-18.3 19-31.5 18.2l-21.3-1.3c-7.1-.4-14.2 1.5-20.1 5.4l-17.8 11.8c-11 7.3-25.4 7.3-36.4 0L156 366.8c-6-3.9-13-5.8-20.1-5.4l-21.3 1.3c-13.2 .8-25.6-6.4-31.5-18.2l-9.6-19.1c-3.2-6.4-8.4-11.5-14.7-14.7L39.5 301c-11.8-5.9-19-18.3-18.2-31.5l1.3-21.3c.4-7.1-1.5-14.2-5.4-20.1L5.5 210.2c-7.3-11-7.3-25.4 0-36.4L17.2 156c3.9-6 5.8-13 5.4-20.1l-1.3-21.3c-.8-13.2 6.4-25.6 18.2-31.5l19.1-9.6C65 70.2 70.2 65 73.4 58.6L83 39.5c5.9-11.8 18.3-19 31.5-18.2l21.3 1.3c7.1 .4 14.2-1.5 20.1-5.4L173.8 5.5zM272 192a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM1.3 441.8L44.4 339.3c.2 .1 .3 .2 .4 .4l9.6 19.1c11.7 23.2 36 37.3 62 35.8l21.3-1.3c.2 0 .5 0 .7 .2l17.8 11.8c5.1 3.3 10.5 5.9 16.1 7.7l-37.6 89.3c-2.3 5.5-7.4 9.2-13.3 9.7s-11.6-2.2-14.8-7.2L74.4 455.5l-56.1 8.3c-5.7 .8-11.4-1.5-15-6s-4.3-10.7-2.1-16zm248 60.4L211.7 413c5.6-1.8 11-4.3 16.1-7.7l17.8-11.8c.2-.1 .4-.2 .7-.2l21.3 1.3c26 1.5 50.3-12.6 62-35.8l9.6-19.1c.1-.2 .2-.3 .4-.4l43.2 102.5c2.2 5.3 1.4 11.4-2.1 16s-9.3 6.9-15 6l-56.1-8.3-32.2 49.2c-3.2 5-8.9 7.7-14.8 7.2s-11-4.3-13.3-9.7z"/></svg>            
+            <h3>Award Winners</h3>
+        </a>
+    </div>
+    <div class="iconbox">
+        <a href="todays_deals">
+            <svg class="navicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#006900" d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm80 64c-8.8 0-16 7.2-16 16v64c0 8.8 7.2 16 16 16H368c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80z"/></svg>        
+            <h3>Today's Deal</h3>
+        </a>
+    </div>       
+</div>
+
+<div class="boxline"></div>
+
+<!--body -->
+<div>
+    <center><h1 class="name">New Arrivals</h1></center>
+    <img src="{% static 'images/new_arrivals.jpg' %}" class="image">
+    <p class="desc"><span class="word">E</span>xplore the latest literary offerings with our new book arrivals! From gripping fiction to enlightening non-fiction, 
+        these fresh releases promise captivating stories and thought-provoking insights.
+        Dive into worlds of imagination, uncover intriguing mysteries,
+         and embark on unforgettable journeys with our curated selection of new arrivals.
+          Whether you're seeking thrilling adventures or profound reflections, 
+          there's something for every reader to discover among our latest additions.
+           Don't miss out on the excitement – grab a new release today and let your reading journey begin anew!</p>
+</div>
+
+<div>
+    <center><h1 class="name">Box Sets</h1></center>
+    <img src="{% static 'images/box_sets.jpg' %}" class="image">
+    <p class="desc"><span class="word">I</span>ndulge in the ultimate literary experience with our curated box sets! 
+        These carefully selected collections bring together beloved series, timeless classics, orthemed anthologies in beautifully packaged editions. 
+         From epic fantasy sagas to gripping mystery thrillers, our box sets offer readers the convenience of having entire worlds at their fingertips.
+          Perfect for collectors or those embarking on literary adventures, these sets make an ideal gift or addition to any bookshelf. 
+          Immerse yourself in multiple volumes of captivating storytelling with our handpicked box sets, designed to elevate your reading experience to new heights!</p>
+</div>
+
+<div>
+    <center><h1 class="name">Best Seller</h1></center>
+    <img src="{% static 'images/best_seller.jpeg' %}" class="image">
+    <p class="desc"><span class="word">D</span>iscover the hottest reads with our collection of best sellers! 
+        From gripping thrillers to heartwarming romances, these top-rated titles have captured readers' 
+        hearts and imaginations worldwide. Dive into captivating stories that have topped charts and garnered critical acclaim, 
+        offering a perfect blend of entertainment and literary excellence. Whether you're seeking pulse-pounding 
+        suspense or thought-provoking insights, our best sellers showcase the most compelling voices in contemporary
+         literature. Join the millions of readers who have made these books must-reads, and experience the excitement 
+         of diving into a certified hit!</p>
+</div>
+
+<div>
+    <center><h1 class="name">Fiction Books</h1></center>
+    <img src="{% static 'images/fiction_books.jpg' %}" class="image">
+    <p class="desc"><span class="word">E</span>mbark on a journey of imagination with our captivating fiction 
+        selection! From spellbinding fantasies to gripping thrillers, our fiction books promise to transport 
+        you to new worlds and introduce you to unforgettable characters. Explore the depths of human emotion,
+         unravel intricate mysteries, and experience the thrill of adventure with our diverse range of stories.
+          Whether you're craving romance, suspense, or literary fiction, our collection has something for every
+           reader's taste. Let your imagination soar and lose yourself in the pages of our compelling fiction titles today!</p>
+</div>
+
+<div>
+    <center><h1 class="name">Award Winners</h1></center>
+    <img src="{% static 'images/award_winner.jpg' %}" class="image">
+    <p class="desc"><span class="word">C</span>elebrate literary excellence with our curated collection of award-winning
+         books! From Pulitzer Prize winners to Man Booker Prize recipients, these acclaimed titles represent the 
+         pinnacle of literary achievement. Immerse yourself in masterfully crafted stories, insightful non-fiction, 
+         and groundbreaking poetry that have garnered recognition from prestigious literary organizations.
+          Discover the voices that have shaped contemporary literature and experience the profound impact of 
+          award-winning works. Whether you're a seasoned reader or new to the world of acclaimed literature,
+           our selection offers a rich tapestry of storytelling that will leave a lasting impression.</p>
+</div>
+
+<div>
+    <center><h1 class="name">Todays Deal</h1></center>
+    <img src="{% static 'images/todays_deals.jpg' %}" class="image">
+    <p class="desc"><span class="word">U</span>nlock unbeatable savings with our Books Today Deals! 
+        Dive into a treasure trove of discounted titles spanning various genres, from bestselling novels 
+        to insightful non-fiction. Discover hidden gems and must-read classics at prices that won't break the bank. 
+        Whether you're stocking your bookshelf or searching for the perfect gift, our curated selection of deals 
+        ensures there's something for every reader's taste. Don't miss out on the chance to snag your next favorite
+         read at a fraction of the cost – explore our Books Today Deals now and indulge in affordable literary delights!</p>
+</div>
+
+<div>
+    <center><h1 class="name">Authors</h1></center>
+    <div class="img_bg">
+        <img src="{% static 'images/author1.jpg' %}" class="auth">
+        <img src="{% static 'images/author2.jpg' %}" class="auth">
+        <img src="{% static 'images/author3.jpg' %}" class="auth">
+        <img src="{% static 'images/author4.jpg' %}" class="auth">
+        <img src="{% static 'images/author5.jpg' %}" class="auth">
+    </div>
+    <p class="desc"><span class="word">D</span>elve into the lives and works of your favorite authors with our spotlight on 
+        literary luminaries! From prolific novelists to groundbreaking poets, explore the inspirations, aspirations, 
+        and creative processes behind their most beloved works. Gain insight into the minds of literary icons and 
+        discover the stories behind the stories that have captured readers' imaginations worldwide. Whether you're 
+        a dedicated fan or curious newcomer, our exploration of authors offers a captivating journey into the world of 
+        literature. Uncover the fascinating personalities and rich legacies that shape the literary landscape, and 
+        celebrate the enduring impact of these talented wordsmiths.</p>
+    <div class="img_bg">
+        <img src="{% static 'images/author6.jpg' %}" class="auth">
+        <img src="{% static 'images/author7.jpg' %}" class="auth">
+        <img src="{% static 'images/author8.jpg' %}" class="auth">
+        <img src="{% static 'images/author9.jpg' %}" class="auth">
+        <img src="{% static 'images/author10.jpg' %}" class="auth">
+    </div>
+    
+</div>
+
+</body>
+
+<!--footer-->
+<footer class="footer">
+    <div class="foot1">
+        <div class="div1">
+            <h1 class="heads"><a href="#"class="lnk" >OBS </a></h1>
+            <p><a href="#"class="lnk">Today a Reader<br> Tommorow a Leader </a></p>
+        </div>
+        <div class="div2">
+            <h2 class="heads">COMPANY</h2>
+            <p class="dash dash2"></p>
+            <a href="about_us" class="lnk">ABOUT  US</a><br><br>
+            <a href="contact" class=" lnk">CONTACT  US</a>
+        </div>
+        <div class="div2">
+            <h2 class="heads">POLICIES</h2>
+            <p class="dash dash2"></p>
+            <a href="#" class="lnk">PRIVACY POLICIES</a><br><br>
+            <a href="#" class="lnk">TERMS OF USE</a><br><br>
+            <a href="#" class="lnk">SECURE SHOPPING</a>
+        </div>
+        <div class="div2">
+            <h2 class="heads">HELP</h2>
+            <p class="dash dash1"></p>
+            <a href="#" class="lnk">PAYMENT</a><br><br>
+            <a href="#" class="lnk">SHIPPING</a><br><br>
+            <a href="#" class="lnk">RETURN</a><br><br>
+            <a href="#" class="lnk">FAQ'S</a>
+        </div>
+        <div class="div2 div3">
+            <h2 class="heads">DESIGNED BY</h2>
+            <p class=" dash3"></p>
+            <a href="#" class="lnk">
+                <span class="material-symbols-outlined foot_icon">person</span> 
+                SRINIVAS DUNGROTH</a><br><br>
+            <a href="#" class="lnk">
+                <span class="material-symbols-outlined foot_icon">call</span>
+                9182647592</a><br><br>
+            <a href="#" class="lnk">
+                <span class="material-symbols-outlined foot_icon">location_on</span>
+                HYDERABAD</a><br><br>
+            <a href="#" class="lnk">
+                <span class="material-symbols-outlined foot_icon">mail</span>
+                dungrothsreenivas143@gmail.com</a>
+        </div>
+        
+    </div>
+    <div class="foot2">
+        <div class="social_icons">
+            <a href=""><img src="{% static 'images/youtube.png' %}" class="icon"></a><br>
+            <a href=""><img src="{% static 'images/whatsapp.png' %}" class="icon"></a><br>
+            <a href=""><img src="{% static 'images/twitter.png' %}" class="icon"></a><br>
+            <a href=""><img src="{% static 'images/instagram.png' %}" class="icon"></a><br>
+        </div>
+        <h2 class="last">Powered by 360 digrii</h2>
+    </div>
+</footer>
+</html>

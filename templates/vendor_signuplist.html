@@ -1,0 +1,216 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Vendor SignUp List</title>
+    <link href="{% static 'images/logo.jpg' %}" rel="icon" type="image">
+    <link href="{% static 'css/vendor_signuplist.css' %}" rel="stylesheet">
+    <script defer src="{% static 'js/vendor_signuplist.js' %}" rel="javascript" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>   
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <!--javascript datatable-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.min.css" />
+    <script src="https://cdn.datatables.net/2.0.5/js/dataTables.min.js"></script>
+    <!--autocomplete and search -->
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+</head>
+<body>
+    <!--header-->
+    <header class="header">
+        <a href="{% url 'home' %}">
+            <img src="{% static 'images/logo_png.png' %}" class="logo">
+        </a>
+        <input type="text" id="autocomplete" class="search_box" placeholder="Title,Author,Publisher or ISBN">
+        <button id="searchButton" class="search">
+            <div class="search_icon_bg">
+                <span class="material-symbols-outlined search_icon">search</span>
+            </div>
+        </button>
+        <span class="material-symbols-outlined user">account_circle</span>
+        <a href="#" class="drop">My Account <span class="material-symbols-outlined arrow">arrow_drop_down</span></a>
+        <ul class="dropdown">
+            <li class="loginlist"><a href="{% url 'login' %}" class="loginlists">Login </a></li>
+            <li class="signuplist"><a href="{% url 'signup' %}" class="signuplists">New to OBS?<br>SignUp </a></li>
+            <li class="droplist"><a href="{% url 'forgot_password' %}" class="droplists">Change Password </a></li>
+            <li class="droplist"><a href="{% url 'contact' %}" class="droplists">Contact us </a></li>
+            <li class="droplist"><a href="{% url 'about_us' %}" class="droplists">About us</a></li><hr>
+            <li class="radiolist"><span>Currency <input type="radio" name="currency">&#8377;<input type="radio" name="currency">&#36;</span></li>
+        </ul>
+
+        <div class="accountline"></div>
+        <a href="#">
+            <input type="number" placeholder="0" class="cart_number" disabled>
+            <span class="material-symbols-outlined cart">shopping_cart</span>
+        </a>
+    </header>
+    <nav>
+        <a href="#" class="nav side">Book<span class="material-symbols-outlined">arrow_drop_down</span></a><div class="lines"></div>
+        <a href="{% url 'new_arrivals' %}" class="nav">New Arrivals</a><div class="lines"></div>
+        <a href="{% url 'box_sets' %}" class="nav">Box Sets</a><div class="lines"></div>
+        <a href="{% url 'best_seller' %}" class="nav">Best Seller</a><div class="lines"></div>
+        <a href="{% url 'fiction_books' %}" class="nav">Fiction Books</a><div class="lines"></div>
+        <a href="{% url 'award_winning' %}" class="nav"> Award Winners</a><div class="lines"></div>
+        <a href="{% url 'featured_authors' %}" class="nav">Featured Authors</a><div class="lines"></div>
+        <a href="{% url 'todays_deals' %}" class="nav">Today's Deal</a><div class="lines"></div><br>
+        <a href="{% url 'request_a_book' %}" class="nav">Request a Book</a><div class="lines"></div>
+        <div>
+            <input type="number" placeholder="0" class="heart_number" disabled>
+            <img src="{% static 'images/heart_aboutus_page.png' %}" class="heart_img">
+        </div>
+    </nav>
+    <div class="side_dropdown">
+        <li class="side_list"><a href="{% url 'art_&_photography' %}" ><span class="side_lists">Art & Photography</span></a></li>
+        <li class="side_list"><a href="{% url 'Biographies_&_Memoirs' %}" ><span class="side_lists">Biographies & Memoirs</span></a></li>
+        <li class="side_list"><a href="{% url 'Dictionaries_&_Language' %}" ><span class="side_lists">Dictionaries & Language</span></a></li>
+        <li class="side_list"><a href="{% url 'Fiction' %}" ><span class="side_lists">Fiction</span></a></li>
+        <li class="side_list"><a href="{% url 'Society' %}" ><span class="side_lists">Society</span></a></li>
+        <li class="side_list"><a href="{% url 'law' %}" ><span class="side_lists">Law</span></a></li>
+        <li class="side_list"><a href="{% url 'medicine' %}" ><span class="side_lists">Medicine</span></a></li>
+    </div>
+
+    <!--body-->
+    <h1 class="heading"><center>Vendor SignUp List</center></h1>
+    <center>
+    <table id="myTable" class="display">
+        <thead>
+            <tr>
+                <th>UserID</th>
+                <th>UserType</th>
+                <th>CompanyName</th>
+                <th>CompanyLocation</th>
+                <th>GST_No</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Mobile_No</th>
+                <th>Zipcode</th>
+                <th>update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+    {% for item in result %}
+        <tbody>
+            <tr>
+                <td>{{ item.UserID }}</td>
+                <td>{{ item.UserType }}</td>
+                <td>{{ item.CompanyName}}</td>
+                <td>{{ item.CompanyLocation }}</td>
+                <td>{{ item.GST_No }}</td>
+                <td>{{ item.Username }}</td>
+                <td>{{ item.Password }}</td>
+                <td>{{ item.Mobile_No }}</td>
+                <td>{{ item.Zipcode}}</td>
+                <td><button type="button" class="update-btn" data-user-id="{{ item.UserID }}">
+                    Update
+                </button>
+            </td>
+            <td>
+                <form action="{% url 'delete_vendoruser' item.UserID %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+{% endfor %}
+</table>
+
+<div class="box">
+    <h1 class="heading">Update the vendor user details</h1>
+
+    <form action="{% url 'update_vendoruser' %}" method="post">
+        {% csrf_token %}
+        <label>User ID</label>
+        <input type="hidden" name="user_id" class="ids"  id="update-user-id" ><br>
+
+        <span class="material-symbols-outlined icn firsticn">person</span>
+        <label>Firstname</label>
+                <input type="text"  name="firstname" class="ids firstname" pattern="[a-zA-Z]+" title="Please enter a valid name" ><br>
+                <span class="material-symbols-outlined icn lasticn">person</span>
+                <label>Lastname</label>
+                <input type="text"  name="lastname" class="ids lastname" pattern="[a-zA-Z]+" title="Please enter a valid name" ><br>
+                <span class="material-symbols-outlined icn">mail</span>
+                <label>Email Id</label>
+                <input type="email"  name="email" class="ids" ><br>
+                <span class="material-symbols-outlined icn">lock</span>
+                <label>Password</label>
+                <input type="password"  name="password" class="ids" ><br>
+                <span class="material-symbols-outlined icn">call</span>
+                <label>Mobile no.</label>
+                <input type="number"  name="mobile_no" class="ids" pattern="[0-9]{10}" title="Please enter a valid mobile number" ><br>
+                <span class='material-symbols-outlined icn iccn addressicn'>location_on</span>
+                <label >Address</label>
+                <textarea  name="address" class="ids idds "></textarea><br>
+                <span class='material-symbols-outlined icn'>note_alt</span>
+                <label>Zip Code</label>
+                <input type="number"  name="zip_code" class="ids" pattern="[0-9]{6}" title="Please enter a valid zipcode" ><br>
+                
+                <input type="submit" value="Update" class="btn btn2">        
+    </form>
+
+</div>
+</center>
+
+    <!--footer-->
+    <footer class="footer">
+        <div class="foot1">
+            <div class="div1">
+                <h1 class="heads"><a href="#"class="lnk" >OBS </a></h1>
+                <p><a href="#"class="lnk">Books are a uniquely <br> portable magic</a></p>
+            </div>
+            <div class="div2">
+                <h2 class="heads">COMPANY</h2>
+                <p class="dash dash2"></p>
+                <a href="{% url 'about_us' %}" class="lnk">ABOUT  US</a><br><br>
+                <a href="{% url 'contact' %}" class=" lnk">CONTACT  US</a>
+            </div>
+            <div class="div2">
+                <h2 class="heads">POLICIES</h2>
+                <p class="dash dash2"></p>
+                <a href="#" class="lnk">PRIVACY POLICIES</a><br><br>
+                <a href="#" class="lnk">TERMS OF USE</a><br><br>
+                <a href="#" class="lnk">SECURE SHOPPING</a>
+            </div>
+            <div class="div2">
+                <h2 class="heads">HELP</h2>
+                <p class="dash dash1"></p>
+                <a href="#" class="lnk">PAYMENT</a><br><br>
+                <a href="#" class="lnk">SHIPPING</a><br><br>
+                <a href="#" class="lnk">RETURN</a><br><br>
+                <a href="#" class="lnk">FAQ'S</a>
+            </div>
+            <div class="div2 div3">
+                <h2 class="heads">DESIGNED BY</h2>
+                <p class=" dash3"></p>
+                <a href="#" class="lnk">
+                    <span class="material-symbols-outlined">person</span> 
+                    SRINiVAS DUNGROTH</a><br><br>
+                <a href="#" class="lnk">
+                    <span class="material-symbols-outlined">call</span>
+                    9182647592</a><br><br>
+                <a href="#" class="lnk">
+                    <span class="material-symbols-outlined">location_on</span>
+                    HYDERABAD</a><br><br>
+                <a href="#" class="lnk">
+                    <span class="material-symbols-outlined">mail</span>
+                    dungrothsreenivias143@gmail.com</a>
+            </div>
+            
+        </div>
+        <div class="foot2">
+            <div class="social_icons">
+                <a href=""><img src="{% static 'images/youtube.png' %}" class="icon"></a><br>
+                <a href=""><img src="{% static 'images/whatsapp.png' %}" class="icon"></a><br>
+                <a href=""><img src="{% static 'images/twitter.png' %}" class="icon"></a><br>
+                <a href=""><img src="{% static 'images/instagram.png' %}" class="icon"></a><br>
+            </div>
+            <h2 class="last">Powered by 360 digrii</h2>
+        </div>
+    </footer>
+    </html>
